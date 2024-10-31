@@ -1,5 +1,16 @@
-import { ScrollViewStyleReset } from 'expo-router/html';
-import { type PropsWithChildren } from 'react';
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
+import type { PropsWithChildren } from 'react'
+import { ScrollViewStyleReset } from 'expo-router/html'
+
+const responsiveBackground = `
+body {
+  background-color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+  }
+}`
 
 /**
  * This file is web-only and used to configure the root HTML for every web page during static rendering.
@@ -25,15 +36,5 @@ export default function Root({ children }: PropsWithChildren) {
       </head>
       <body>{children}</body>
     </html>
-  );
+  )
 }
-
-const responsiveBackground = `
-body {
-  background-color: #fff;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-  }
-}`;
